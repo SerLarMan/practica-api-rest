@@ -13,7 +13,7 @@ const getBookStoresById = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const bookStore = BookStore.findById(id).populate("books");
+    const bookStore = await BookStore.findById(id); //.populate("books");
     return res.status(200).json(bookStore);
   } catch (error) {
     return next(error);
@@ -23,11 +23,26 @@ const getBookStoresById = async (req, res) => {
 const addBookStore = async (req, res) => {
   try {
     const newBookStore = new BookStore(req.body);
-    const bookStoreSaved = newBookStore.save();
+    const bookStoreSaved = await newBookStore.save();
     return res.status(201).json(bookStoreSaved);
   } catch (error) {
     return next(error);
   }
 };
 
-module.exports = { getBookStores, getBookStoresById, addBookStore };
+const deleteBookStore = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await BookStore.findByIdAndDelete(id);
+    return res.status(200).json("Bookstore deleted");
+  } catch (error) {
+    return next(error);
+  }
+};
+
+module.exports = {
+  getBookStores,
+  getBookStoresById,
+  addBookStore,
+  deleteBookStore,
+};

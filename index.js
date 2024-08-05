@@ -9,15 +9,15 @@ connectDB();
 // Server configuration
 const PORT = 3000;
 const app = express();
-server.use(express.json);
-server.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.use("/bookstores", bookstoreRoutes);
 app.use("/books", bookRoutes);
 
 app.use("*", (req, res, next) => {
   const error = new Error("Route not found");
-  error.status(404);
+  error.status = 404;
   next(error);
 });
 
