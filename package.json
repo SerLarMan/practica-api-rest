@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "seed": "node ./src/utils/seeds/book.seed.js"
   },
   "keywords": [],
   "author": "serlarman",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "nodemon": "^3.1.4"
   },

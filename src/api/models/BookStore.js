@@ -6,7 +6,7 @@ const bookStoreSchema = new Schema(
   {
     name: { type: String, require: true },
     adress: { type: String, require: true },
-    books: [{ type: mongoose.Types.ObjectId, ref: "books" }],
+    books: [{ type: mongoose.Types.ObjectId, ref: "Book" }],
   },
   {
     timestamps: true,

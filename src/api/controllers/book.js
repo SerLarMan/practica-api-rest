@@ -30,4 +30,28 @@ const addBook = async (req, res) => {
   }
 };
 
-module.exports = { getBooks, getBooksById, addBook };
+const updateBook = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const newBook = new Book(req.body);
+    newBook._id = id;
+    const updatedBook = await Book.findByIdAndUpdate(id, newBook, {
+      new: true,
+    });
+    return res.status(200).json(updatedBook);
+  } catch (error) {
+    return next(error);
+  }
+};
+
+const deleteBook = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Book.findByIdAndDelete(id);
+    return res.status(200).json("Book deleted");
+  } catch (error) {
+    return next(error);
+  }
+};
+
+module.exports = { getBooks, getBooksById, addBook, updateBook, deleteBook };
