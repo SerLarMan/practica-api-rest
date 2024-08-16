@@ -41,11 +41,11 @@ A continuación se listaran las rutas y los endpoints para poder interactuar con
 
 | Método | Ruta | Cuerpo | Descripción |
 | ------ | ------ | ------ | ------ |
-| Get | / | | Obtiene todos los libros |
-| GetById | /:id | | Obtiene el libro seleccionado por la id |
-| Post | / | Objeto Book | Crea un libro nuevo |
-| Put | /:id | Objeto Book | Actualiza un libro por su id |
-| Delete | /:id | | Borra un libro por su id |
+| GET | / | | Obtiene todos los libros |
+| GET | /:id | | Obtiene el libro seleccionado por la id |
+| POST | / | Objeto Book | Crea un libro nuevo |
+| PUT | /:id | Objeto Book | Actualiza un libro por su id |
+| DELETE | /:id | | Borra un libro por su id |
 
 ### Bookstore
 
@@ -55,11 +55,11 @@ A continuación se listaran las rutas y los endpoints para poder interactuar con
 
 | Método | Ruta | Cuerpo | Descripción |
 | ------ | ------ | ------ | ------ |
-| Get | / | | Obtiene todas las librerías |
-| GetById | /:id | | Obtiene la librería seleccionada por la id |
-| Post | / | Objeto Book | Crea una librería nueva |
-| Put | /:id | Objeto Book | Actualiza una librería por su id |
-| Delete | /:id | | Borra una librería por su id |
+| GET | / | | Obtiene todas las librerías |
+| GET | /:id | | Obtiene la librería seleccionada por la id |
+| POST | / | Objeto Book | Crea una librería nueva |
+| PUT | /:id | Objeto Book | Actualiza una librería por su id |
+| DELETE | /:id | | Borra una librería por su id |
 
 ## Licencia
 
