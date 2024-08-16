@@ -1,6 +1,6 @@
 const Book = require("../models/Book");
 
-const getBooks = async (req, res) => {
+const getBooks = async (req, res, next) => {
   try {
     const books = await Book.find();
     return res.status(200).json(books);
@@ -9,7 +9,7 @@ const getBooks = async (req, res) => {
   }
 };
 
-const getBooksById = async (req, res) => {
+const getBooksById = async (req, res, next) => {
   const { id } = req.params;
 
   try {
@@ -20,7 +20,7 @@ const getBooksById = async (req, res) => {
   }
 };
 
-const addBook = async (req, res) => {
+const addBook = async (req, res, next) => {
   try {
     const newBook = new Book(req.body);
     const bookSaved = await newBook.save();
@@ -30,7 +30,7 @@ const addBook = async (req, res) => {
   }
 };
 
-const updateBook = async (req, res) => {
+const updateBook = async (req, res, next) => {
   try {
     const { id } = req.params;
     const newBook = new Book(req.body);
@@ -44,7 +44,7 @@ const updateBook = async (req, res) => {
   }
 };
 
-const deleteBook = async (req, res) => {
+const deleteBook = async (req, res, next) => {
   try {
     const { id } = req.params;
     await Book.findByIdAndDelete(id);
